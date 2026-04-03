@@ -1,0 +1,76 @@
+<div class="container mt-4 admin-users">
+
+  <!-- Header -->
+  <div class="page-header mb-3">
+    <h2>All Users</h2>
+    <p>Manage and view all registered users</p>
+  </div>
+
+  <!-- SEARCH -->
+  <div class="search-box mb-3">
+    <input 
+      type="text" 
+      class="form-control" 
+      placeholder="Search by name or email..."
+      [(ngModel)]="searchText">
+  </div>
+
+  <!-- TABLE -->
+  <div class="table-responsive">
+    <table class="table custom-table mt-3 align-middle">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>User</th>
+          <th>Contact</th>
+          <th>Address</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let user of paginatedUsers; let i = index">
+          <td>{{ i + 1 }}</td>
+
+          <!-- Name + Email -->
+          <td>
+            <div class="user-info">
+              <div class="name">{{ user.name }}</div>
+              <div class="email">{{ user.email }}</div>
+            </div>
+          </td>
+
+          <!-- Phone -->
+          <td>
+            <span class="phone">
+              {{ user.phone || 'N/A' }}
+            </span>
+          </td>
+
+          <!-- Address -->
+          <td>
+            <span class="address">
+              {{ user.address || 'N/A' }}
+            </span>
+          </td>
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- PAGINATION -->
+  <div class="pagination-box mt-3 d-flex justify-content-between align-items-center">
+    <button class="btn nav-btn" (click)="prevPage()">
+      ← Previous
+    </button>
+
+    <span class="page-indicator">
+      Page {{ currentPage }}
+    </span>
+
+    <button class="btn nav-btn" (click)="nextPage()">
+      Next →
+    </button>
+  </div>
+
+</div>

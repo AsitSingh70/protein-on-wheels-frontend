@@ -1,0 +1,35 @@
+<div class="register-wrapper">
+
+  <div class="container d-flex justify-content-center align-items-center">
+
+    <div class="register-card">
+
+      <h2 class="text-center mb-4">Create Account ;)</h2>
+
+      <form (ngSubmit)="sendOtp()" class="mt-3">
+
+        <div class="mb-3">
+          <label>Email</label>
+          <input type="email"
+                 class="form-control register-input"
+                 [(ngModel)]="email"
+                 name="email"
+                 required>
+        </div>
+
+        <button class="btn register-btn w-100">
+          Send OTP
+        </button>
+
+      </form>
+
+      <!-- EXTRA LINK -->
+      <div class="text-center mt-3 register-links">
+        <a routerLink="/login">Already have an account? Login</a>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

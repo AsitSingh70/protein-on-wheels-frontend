@@ -1,0 +1,108 @@
+<div class="container mt-4 admin-report">
+
+  <!-- Header -->
+  <div class="page-header mb-4">
+    <h2>📊 Monthly Report</h2>
+    <p>Track performance and revenue insights</p>
+  </div>
+
+  <!-- FILTER -->
+  <div class="card filter-card mb-4">
+    <div class="row g-2 align-items-center">
+
+      <div class="col-6 col-md-3">
+        <input type="number" [(ngModel)]="year" class="form-control" placeholder="Year">
+      </div>
+
+      <div class="col-6 col-md-3">
+        <input type="number" [(ngModel)]="month" class="form-control" placeholder="Month">
+      </div>
+
+      <div class="col-12 col-md-3">
+        <button class="btn btn-primary w-100" (click)="getReport()">
+          Get Report
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div *ngIf="report" class="row g-3 text-center stats-section">
+
+    <div class="col-6 col-md-3">
+      <div class="stat-card total">
+        <h6>Total Orders</h6>
+        <h2>{{ report.totalOrders }}</h2>
+      </div>
+    </div>
+
+    <div class="col-6 col-md-3">
+      <div class="stat-card approved">
+        <h6>Approved</h6>
+        <h2>{{ report.approved }}</h2>
+      </div>
+    </div>
+
+    <div class="col-6 col-md-3">
+      <div class="stat-card pending">
+        <h6>Pending</h6>
+        <h2>{{ report.pending }}</h2>
+      </div>
+    </div>
+
+    <div class="col-6 col-md-3">
+      <div class="stat-card cancelled">
+        <h6>Cancelled</h6>
+        <h2>{{ report.cancelled }}</h2>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- REVENUE -->
+  <div *ngIf="report" class="mt-4">
+    <div class="revenue-card text-center">
+      <h5>Total Revenue</h5>
+      <h1>₹{{ report.totalRevenue }}</h1>
+    </div>
+  </div>
+
+  <!-- CHART -->
+  <div class="mt-4 chart-card">
+    <h5 class="text-center mb-3">Order Status Chart</h5>
+    <div class="chart-wrapper">
+      <canvas id="statusChart"></canvas>
+    </div>
+  </div>
+
+  <!-- CUSTOMERS -->
+  <div class="mt-5">
+    <h4 class="mb-3">Top 30 Customers</h4>
+
+    <div class="table-responsive">
+      <table class="table custom-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Orders</th>
+            <th>Spent (₹)</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let c of topCustomers">
+            <td class="fw-semibold">{{ c.name }}</td>
+            <td>{{ c.email }}</td>
+            <td>{{ c.phone }}</td>
+            <td>{{ c.totalOrders }}</td>
+            <td class="price">{{ c.totalSpent }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>

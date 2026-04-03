@@ -1,0 +1,54 @@
+<div class="cart-page container mt-4">
+
+  <h3 class="cart-title mb-4"> My Cart 🛒</h3>
+
+  <!-- CART ITEMS -->
+  <div *ngFor="let item of cartItems" class="cart-card mb-3">
+
+    <div class="row align-items-center">
+
+      <!-- IMAGE -->
+      <div class="col-4 col-md-2 text-center">
+        <img [src]="item.product.imageUrl" class="cart-img">
+      </div>
+
+      <!-- DETAILS -->
+      <div class="col-8 col-md-7">
+        <h6 class="product-name">{{item.product.name}}</h6>
+        <p class="price">₹ {{item.product.price}} × {{item.quantity}}</p>
+      </div>
+
+      <!-- REMOVE -->
+      <div class="col-12 col-md-3 text-md-end mt-2 mt-md-0">
+        <button class="remove-btn" (click)="remove(item.id)">
+           Remove
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- EMPTY STATE -->
+  <div *ngIf="cartItems.length === 0" class="empty-cart text-center">
+    <h5>Your cart is empty 😢</h5>
+    <p>Add some products to continue</p>
+  </div>
+
+  <!-- TOTAL + CTA -->
+  <div class="cart-summary mt-4">
+
+    <div class="total-box">
+      <h5>Total</h5>
+      <h4>₹ {{total}}</h4>
+    </div>
+
+    <button class="place-order-btn"
+            (click)="placeOrder()"
+            [disabled]="cartItems.length === 0">
+       Place Order🚀
+    </button>
+
+  </div>
+
+</div>

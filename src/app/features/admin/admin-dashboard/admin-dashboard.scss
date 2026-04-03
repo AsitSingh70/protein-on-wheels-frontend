@@ -1,0 +1,83 @@
+.admin-dashboard {
+
+  .greeting {
+    h2 {
+      font-weight: 700;
+      color: #0f172a; // dark navy
+    }
+
+    span {
+      color: #22c55e; // green accent
+    }
+
+    .sub-text {
+      color: #6c757d;
+      font-size: 14px;
+    }
+  }
+
+  .admin-card {
+    position: relative;
+    height: 180px;
+    border-radius: 18px;
+    overflow: hidden;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+    color: white;
+    transition: all 0.3s ease;
+
+    /* Glass effect */
+    backdrop-filter: blur(10px);
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(15, 23, 42, 0.9),
+        rgba(15, 23, 42, 0.3)
+      );
+      z-index: 1;
+    }
+
+    .card-content {
+      position: relative;
+      z-index: 2;
+
+      h4 {
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+
+      p {
+        font-size: 13px;
+        opacity: 0.85;
+      }
+    }
+
+    &:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  /* Background Images */
+  .products {
+    background: url('/proteine_product.jpg') center/cover no-repeat;
+  }
+
+  .orders {
+    background: url('/orders.jpg') center/cover no-repeat;
+  }
+
+  .reports {
+    background: url('/report2.jpg') center/cover no-repeat;
+  }
+
+  .users {
+    background: url('/users.jpg') center/cover no-repeat;
+  }
+}

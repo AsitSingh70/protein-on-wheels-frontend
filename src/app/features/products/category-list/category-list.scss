@@ -1,0 +1,58 @@
+/* 🔥 Card Container */
+.category-card {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+/* 🖼 Image */
+.category-card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  transition: 0.3s;
+}
+
+/* 🔥 Centered Cool Text */
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 1px;
+
+  text-align: center;
+
+  background: rgba(0, 0, 0, 0.5);
+  padding: 6px 14px;
+  border-radius: 8px;
+}
+
+/* ✨ Hover Effect */
+.category-card:hover img {
+  transform: scale(1.08);
+}
+.category-card:hover .overlay {
+  background: rgba(34, 197, 94, 0.8); /* green highlight */
+}
+
+/*  Add dark overlay on image (for better text visibility) */
+.category-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.section-title {
+  position: relative;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #001a41; /* Bootstrap blue */
+}
+

@@ -1,0 +1,59 @@
+<div class="container mt-4 admin-dashboard">
+
+  <!-- Greeting -->
+  <div class="greeting mb-4">
+    <h2>
+      {{ greeting }} <span>{{ userName }}</span> 👋
+    </h2>
+    <p class="sub-text">Welcome back to your control panel</p>
+  </div>
+
+  <!-- Cards -->
+  <div class="row g-4">
+
+    <!-- Products -->
+    <div class="col-12 col-sm-6 col-lg-3">
+      <div class="card admin-card products" routerLink="/admin/products">
+        <div class="overlay"></div>
+        <div class="card-content">
+          <h4>Products</h4>
+          <p>Manage all products</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Orders -->
+    <div class="col-12 col-sm-6 col-lg-3">
+      <div class="card admin-card orders" routerLink="/admin/orders">
+        <div class="overlay"></div>
+        <div class="card-content">
+          <h4>Orders</h4>
+          <p>View & manage orders</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reports -->
+    <div class="col-12 col-sm-6 col-lg-3">
+      <div class="card admin-card reports" routerLink="/admin/reports">
+        <div class="overlay"></div>
+        <div class="card-content">
+          <h4>Reports</h4>
+          <p>Monthly insights</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Users -->
+    <div class="col-12 col-sm-6 col-lg-3">
+      <div class="card admin-card users" routerLink="/admin/users">
+        <div class="overlay"></div>
+        <div class="card-content">
+          <h4>Users</h4>
+          <p>Manage users</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

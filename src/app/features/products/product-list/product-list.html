@@ -1,0 +1,55 @@
+<div class="container mt-4 product-page">
+
+  <h4 class="page-title mb-4">Our Products 🛒</h4>
+
+  <!-- SKELETON LOADER -->
+  <div *ngIf="!products || products.length === 0">
+
+    <div class="skeleton-card mb-3" *ngFor="let i of [1,2,3,4]">
+      <div class="skeleton-img"></div>
+      <div class="skeleton-content">
+        <div class="skeleton-line w-75"></div>
+        <div class="skeleton-line w-50"></div>
+        <div class="skeleton-line w-25"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div *ngFor="let p of products" class="product-card mb-3" (click)="goToDetails(p.id)">
+
+    <div class="row g-0 align-items-center">
+
+      <!-- IMAGE -->
+      <div class="col-4 col-md-3 product-img-box">
+        <img [src]="p.imageUrl" alt="product">
+      </div>
+
+      <!-- DETAILS -->
+      <div class="col-8 col-md-9">
+        <div class="card-body product-content">
+
+          <h5 class="product-title">{{p.name}}</h5>
+
+          <p class="product-desc">
+            {{p.description}}
+          </p>
+
+          <div class="d-flex justify-content-between align-items-center mt-2">
+
+            <h6 class="product-price">₹ {{p.price}}</h6>
+
+            <button class="btn add-btn" [class.added]="p.added" (click)="handleAddToCart(p, $event)">
+              {{ p.added ? 'Added ✓' : 'Add to Cart' }}
+            </button>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

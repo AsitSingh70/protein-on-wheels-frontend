@@ -1,0 +1,80 @@
+<nav class="navbar navbar-expand-lg navbar-dark custom-navbar px-3">
+
+  <!-- 🔥 Logo -->
+  <a class="navbar-brand fw-bold" routerLink="/">
+    <span class="logo-text">PROTEIN</span>
+    <span class="logo-sub">ON WHEELS</span>
+  </a>
+  
+
+  <!-- 📱 Mobile Toggle -->
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- 🔽 Collapsible Content -->
+  <div class="collapse navbar-collapse" id="navbarContent">
+
+    <!-- 🧭 Menu -->
+    <ul class="navbar-nav ms-3">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/products">Products</a>
+      </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link" routerLink="/categories">Categories</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/about">About</a>
+      </li> -->
+    </ul>
+
+    <!-- 🔍 Search Bar -->
+    <div class="search-box mx-lg-4 my-2 my-lg-0">
+      <input type="text" class="form-control" placeholder="Search..."
+        [(ngModel)]="searchText" (input)="onSearch()" />
+
+      <!-- Dropdown -->
+      <div *ngIf="filteredProducts.length > 0" class="search-dropdown">
+        <div *ngFor="let product of filteredProducts"
+          (click)="goToProduct(product.id)" class="search-item">
+          {{ product.name }}
+        </div>
+      </div>
+    </div>
+
+    <!-- 🛒 Right Side -->
+    <div class="ms-auto d-flex align-items-center gap-2">
+
+      <!-- Cart -->
+      <a *ngIf="auth.isLoggedIn()" class="icon-btn" routerLink="/cart">
+        <i class="bi bi-cart3"></i>
+      </a>
+
+      <!-- Orders -->
+      <a *ngIf="auth.isLoggedIn()" class="btn btn-outline-light btn-sm" routerLink="/my-orders">
+        Orders
+      </a>
+
+      <!-- Login -->
+      <a *ngIf="!auth.isLoggedIn()" class="btn btn-success btn-sm" routerLink="/login">
+        Login
+      </a>
+
+      <!-- Logout -->
+      <button *ngIf="auth.isLoggedIn()" class="btn btn-danger btn-sm" (click)="logout()">
+        Logout
+      </button>
+
+      <!-- Admin -->
+      <a *ngIf="auth.isAdmin()" class="btn btn-warning btn-sm" routerLink="/admin-dashboard">
+        Admin
+      </a>
+
+    </div>
+
+  </div>
+
+</nav>

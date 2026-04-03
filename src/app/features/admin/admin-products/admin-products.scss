@@ -1,0 +1,108 @@
+.admin-products {
+
+  .page-header {
+    h2 {
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    p {
+      color: #6c757d;
+      font-size: 14px;
+    }
+  }
+
+  /* FORM CARD */
+  .form-card {
+    border: none;
+    border-radius: 18px;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+
+    .form-control {
+      border-radius: 10px;
+      border: 1px solid #e5e7eb;
+      padding: 10px;
+
+      &:focus {
+        border-color: #22c55e;
+        box-shadow: 0 0 0 0.15rem rgba(34, 197, 94, 0.25);
+      }
+    }
+
+    .category-hint {
+      color: #6c757d;
+      font-size: 12px;
+    }
+
+    .action-btn {
+      width: 100%;
+      border-radius: 10px;
+      padding: 10px;
+      font-weight: 600;
+    }
+
+    .btn-success {
+      background: #22c55e;
+      border: none;
+
+      &:hover {
+        background: #16a34a;
+      }
+    }
+
+    .btn-warning {
+      border: none;
+    }
+  }
+
+  /* TABLE */
+  .custom-table {
+    border-radius: 15px;
+    overflow: hidden;
+    background: white;
+
+    thead {
+      background: #0f172a;
+      color: white;
+
+      th {
+        font-weight: 500;
+        border: none;
+      }
+    }
+
+    tbody tr {
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: #f8fafc;
+      }
+    }
+
+    td {
+      border-color: #f1f5f9;
+    }
+
+    .price {
+      font-weight: 600;
+      color: #22c55e;
+    }
+
+    .btn-primary {
+      background: #0ea5e9;
+      border: none;
+
+      &:hover {
+        background: #0284c7;
+      }
+    }
+
+    .btn-danger {
+      &:hover {
+        background: #dc2626;
+      }
+    }
+  }
+}

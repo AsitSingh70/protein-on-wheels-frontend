@@ -1,0 +1,536 @@
+// .card:hover {
+//   transform: scale(1.02);
+//   transition: 0.3s;
+// }
+
+//video card
+// .video-card {
+//   width: 100%;
+//   max-width: 220px;   // keeps it like reel size
+//   aspect-ratio: 9 / 16;  //  vertical ratio
+//   overflow: hidden;
+//   border-radius: 12px;
+// }
+
+// .video-card video {
+//   width: 100%;
+//   height: 100%;
+//   object-fit: cover;   // fills nicely like Instagram reels
+//   border-radius: 12px;
+// }
+
+
+//delivery section
+.delivery-section {
+  position: relative;
+  text-align: center;
+}
+
+.delivery-section img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+  opacity: 0.9;
+}
+
+
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 20px 30px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+
+/* SECTION */
+.product-section {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 12px;
+}
+
+/* SCROLL CONTAINER */
+.product-scroll {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scroll-snap-type: x mandatory;
+}
+
+.product-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* CARD */
+.product-card {
+  min-width: 200px;
+  max-width: 220px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: 0.3s;
+  scroll-snap-align: start;
+
+  position: relative;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+/* IMAGE */
+.img-wrapper {
+  height: 160px;
+  overflow: hidden;
+  border-radius: 14px 14px 0 0;
+}
+
+.img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.3s;
+}
+
+.product-card:hover img {
+  transform: scale(1.08);
+}
+
+/* TEXT */
+.title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.desc {
+  font-size: 12px;
+  color: #6c757d;
+  margin-bottom: 5px;
+}
+
+/* PRICE */
+.price {
+  font-weight: bold;
+  color: #28a745;
+}
+
+/* BUTTON */
+.add-btn {
+  width: 100%;
+  background: #001a41;
+  color: #fff;
+  border-radius: 8px;
+}
+
+.add-btn:hover {
+  // background: #0b5ed7;
+  background: #28a745;
+}
+
+/* SALE BADGE */
+.sale-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: linear-gradient(45deg, #ff416c, #ff4b2b);
+  color: #fff;
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+.section-title {
+  position: relative;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #001a41; /* Bootstrap blue */
+}
+
+/* DESKTOP GRID (override scroll) */
+@media (min-width: 768px) {
+  .product-scroll {
+    flex-wrap: wrap;
+    overflow: visible;
+    justify-content: space-between;
+  }
+
+  .product-card {
+    // flex: 0 0 calc(25% - 15px);
+    flex: 0 0 calc(25% - 12px);
+  }
+}
+
+
+
+/* CEO SECTION */
+.ceo-section {
+  background: linear-gradient(135deg, #f8f9fa, #eef2f7);
+  padding: 40px 20px;
+  border-radius: 12px;
+}
+
+/* CARD */
+.ceo-card {
+  max-width: 650px;
+  border: none;
+  border-radius: 18px;
+  background: #ffffff;
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+/* subtle glow */
+.ceo-card::before {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: rgba(40, 167, 69, 0.15); /* your green theme */
+  top: -50px;
+  right: -50px;
+  border-radius: 50%;
+}
+
+/* hover effect */
+.ceo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* IMAGE */
+.ceo-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border: 4px solid #28a745;
+  padding: 3px;
+}
+
+/* NAME */
+.ceo-name {
+  font-weight: 600;
+  color: #001a41; /* matches your buttons */
+}
+
+/* ROLE */
+.ceo-role {
+  font-size: 13px;
+  color: #28a745;
+  margin-bottom: 10px;
+}
+
+/* TEXT */
+.ceo-text {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* SOCIAL ICONS */
+.social-icons a {
+  display: inline-block;
+  margin: 0 8px;
+  font-size: 20px;
+  color: #6c757d;
+  transition: 0.3s;
+}
+
+/* hover colors (brand matching) */
+.social-icons a:hover .fa-instagram {
+  color: #E4405F;
+}
+
+.social-icons a:hover .fa-facebook {
+  color: #1877F2;
+}
+
+.social-icons a:hover .fa-linkedin {
+  color: #0077B5;
+}
+
+/* slight scale effect */
+.social-icons a:hover {
+  transform: scale(1.2);
+}
+
+
+
+//  Happy customers section
+.customer-section {
+  background: linear-gradient(135deg, #f8f9fa, #eef2f7);
+  padding: 30px 20px;
+  border-radius: 12px;
+}
+
+/* CUSTOMER CARD */
+.customer-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  transition: 0.3s;
+}
+
+.customer-card:hover {
+  transform: translateY(-5px);
+}
+
+/* IMAGE */
+.customer-card img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #28a745; /* your theme green */
+  margin-bottom: 8px;
+}
+
+/* NAME */
+.customer-card h6 {
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #001a41;
+}
+
+/* TEXT */
+.customer-card p {
+  font-size: 13px;
+  color: #6c757d;
+}
+
+/* VIDEO SCROLL */
+.video-scroll {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scroll-snap-type: x mandatory;
+}
+
+.video-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* KEEP YOUR EXISTING VIDEO CARD */
+.video-card {
+  min-width: 180px;
+  max-width: 220px;
+  aspect-ratio: 9 / 16;
+  border-radius: 12px;
+  overflow: hidden;
+  scroll-snap-align: start;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.video-card video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (min-width: 768px) {
+  .video-scroll {
+    justify-content: center;
+    overflow: visible;
+  }
+}
+
+
+
+// Delivery section
+/* WRAPPER */
+.delivery-wrapper {
+  background: linear-gradient(135deg, #f8f9fa, #eef2f7);
+  padding: 30px 15px;
+  border-radius: 12px;
+}
+
+/* MAIN CONTAINER */
+.delivery-section {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* IMAGE */
+.delivery-section img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;   /* ✅ better than contain */
+  filter: brightness(0.75); /* darken for overlay contrast */
+}
+
+/* OVERLAY */
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 85%;
+  max-width: 600px;
+
+  padding: 20px 25px;
+  border-radius: 14px;
+
+  background: rgba(0, 26, 65, 0.7); /* dark blue glass */
+  backdrop-filter: blur(6px);
+
+  color: #fff;
+  text-align: center;
+}
+
+/* HEADING */
+.overlay-text h5 {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #28a745; /* your theme green */
+}
+
+/* TEXT */
+.overlay-text p {
+  font-size: 14px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.delivery-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #28a745;
+  color: #fff;
+  padding: 6px 12px;
+  font-size: 12px;
+  border-radius: 20px;
+  font-weight: 500;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  z-index: 2;
+}
+
+.map-pins {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.pin {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: #28a745;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* pulse animation */
+.pin::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(40, 167, 69, 0.5);
+  animation: pulse 1.8s infinite;
+}
+
+.delivery-section iframe {
+  width: 100%;
+  height: 350px;
+  border: none;
+  filter: grayscale(30%) brightness(0.8);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 576px) {
+
+  .delivery-section img {
+    height: 250px;
+  }
+
+  .overlay-text {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .overlay-text h5 {
+    font-size: 16px;
+  }
+
+  .overlay-text p {
+    font-size: 12px;
+  }
+}
+
+
+/* 🟡 SKELETON COMMON */
+.skeleton-line {
+  height: 12px;
+  border-radius: 6px;
+  background: #e0e0e0;
+  margin-bottom: 10px;
+  animation: shimmer 1.5s infinite;
+}
+
+.skeleton-img {
+  width: 100%;
+  height: 160px;
+  background: #e0e0e0;
+  border-radius: 10px;
+  animation: shimmer 1.5s infinite;
+}
+
+.skeleton-btn {
+  height: 30px;
+  border-radius: 8px;
+  background: #e0e0e0;
+  animation: shimmer 1.5s infinite;
+}
+
+/* 🟡 CIRCLE (CEO + USERS) */
+.skeleton-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  animation: shimmer 1.5s infinite;
+}
+
+/* 🟡 MAP */
+.skeleton-map {
+  width: 100%;
+  height: 300px;
+  border-radius: 12px;
+  background: #e0e0e0;
+  animation: shimmer 1.5s infinite;
+}
+
+/* 🟡 SHIMMER */
+@keyframes shimmer {
+  0% { background-color: #e0e0e0; }
+  50% { background-color: #f5f5f5; }
+  100% { background-color: #e0e0e0; }
+}
+
+

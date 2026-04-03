@@ -1,0 +1,84 @@
+<div class="container mt-4 admin-products">
+
+  <!-- Header -->
+  <div class="page-header mb-4">
+    <h2>Manage Products</h2>
+    <p>Add, update and manage your inventory</p>
+  </div>
+
+  <!-- FORM -->
+  <div class="card form-card mb-4">
+    <div class="row g-3">
+
+      <div class="col-12 col-md-6">
+        <input class="form-control" placeholder="Product Name" [(ngModel)]="newProduct.name">
+      </div>
+
+      <div class="col-12 col-md-6">
+        <input class="form-control" placeholder="Price" type="number" [(ngModel)]="newProduct.price">
+      </div>
+
+      <div class="col-12">
+        <input class="form-control" placeholder="Description" [(ngModel)]="newProduct.description">
+      </div>
+
+      <div class="col-12 col-md-6">
+        <input class="form-control" placeholder="Image URL" [(ngModel)]="newProduct.imageUrl">
+      </div>
+
+      <div class="col-12 col-md-6">
+        <input class="form-control" placeholder="Category ID" type="number" [(ngModel)]="newProduct.categoryId">
+      </div>
+
+      <div class="col-12 category-hint">
+        <small>1: Protein | 2: Creatine | 3: Preworkout | 4: Others</small>
+      </div>
+
+      <div class="col-12">
+        <button *ngIf="!isEdit" class="btn btn-success action-btn" (click)="addProduct()">
+           Add Product
+        </button>
+
+        <button *ngIf="isEdit" class="btn btn-warning action-btn" (click)="updateProduct()">
+           Update Product
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TABLE -->
+  <div class="table-responsive">
+    <table class="table custom-table align-middle">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Category</th>
+          <th class="text-center">Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let p of products">
+          <td class="fw-semibold">{{ p.name }}</td>
+          <td class="price">₹{{ p.price }}</td>
+          <td>
+            <span class="badge bg-secondary">
+              {{ p.category?.name }}
+            </span>
+          </td>
+          <td class="text-center">
+            <button class="btn btn-sm btn-primary me-2" (click)="editProduct(p)">
+              Edit
+            </button>
+            <button class="btn btn-sm btn-danger" (click)="deleteProduct(p.id)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>

@@ -1,0 +1,91 @@
+/* BACKGROUND */
+.register-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #001a41, #003366);
+  display: flex;
+  align-items: center;
+}
+
+/* CARD */
+.register-card {
+  width: 100%;
+  max-width: 400px;
+  background: #fff;
+  padding: 30px 25px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  animation: fadeIn 0.5s ease;
+}
+
+/* TITLE */
+.register-card h2 {
+  color: #001a41;
+  font-weight: 600;
+}
+
+/* INPUT */
+.register-input {
+  border-radius: 10px;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  transition: 0.3s;
+}
+
+.register-input:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.2);
+}
+
+/* BUTTON */
+.register-btn {
+  background: linear-gradient(135deg, #28a745, #20c997);
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  font-weight: 600;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.register-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(40,167,69,0.4);
+}
+
+/* LINKS */
+.register-links a {
+  font-size: 13px;
+  color: #6c757d;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.register-links a:hover {
+  color: #28a745;
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MOBILE */
+@media (max-width: 576px) {
+
+  .register-card {
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  .register-card h2 {
+    font-size: 20px;
+  }
+
+}

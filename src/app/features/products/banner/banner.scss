@@ -1,0 +1,71 @@
+.banner {
+  position: relative;
+  width: 100%;
+}
+
+.banner img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+/* 🔥 TEXT OVERLAY */
+.banner-text {
+  position: absolute;
+  top: 50%;
+  left: 60px;
+  transform: translateY(-50%);
+  color: white;
+}
+
+/* Heading */
+.banner-text h1 {
+  font-size: 42px;
+  font-weight: 800;
+  margin: 0;
+}
+
+/* Highlight text (green) */
+.banner-text .highlight {
+  color: #22c55e;
+}
+
+/* Subtitle */
+.banner-text p {
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+/* Button */
+.banner-text button {
+  border-radius: 25px;
+  padding: 8px 20px;
+}
+
+.banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* 📱 Mobile */
+@media (max-width: 768px) {
+
+  .banner img {
+    height: 200px;
+  }
+
+  .banner-text {
+    left: 15px;
+  }
+
+  .banner-text h1 {
+    font-size: 20px;
+  }
+
+  .banner-text p {
+    font-size: 12px;
+  }
+}

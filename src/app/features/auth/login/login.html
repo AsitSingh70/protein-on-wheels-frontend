@@ -1,0 +1,36 @@
+<div class="login-wrapper">
+
+  <div class="container d-flex justify-content-center align-items-center">
+
+    <div class="login-card">
+
+      <h2 class="text-center mb-4">Welcome Back 👋</h2>
+
+      <form (ngSubmit)="login()">
+
+        <div class="mb-3">
+          <label>Email</label>
+          <input type="email" class="form-control custom-input"
+                 [(ngModel)]="email" name="email" required>
+        </div>
+
+        <div class="mb-3">
+          <label>Password</label>
+          <input type="password" class="form-control custom-input"
+                 [(ngModel)]="password" name="password" required>
+        </div>
+
+        <div class="text-end mb-3 login-links">
+          <a routerLink="/forgot-password">Forgot Password?</a><br>
+          <a routerLink="/register">New User? Register</a>
+        </div>
+
+        <button class="btn login-btn w-100">Login</button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>

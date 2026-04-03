@@ -1,0 +1,174 @@
+<!-- 🟡 SKELETON LOADER START -->
+<div *ngIf="!product" class="product-page">
+
+  <div class="container">
+
+    <!-- HERO SKELETON -->
+    <div class="row product-hero">
+
+      <div class="col-md-6">
+        <div class="image-card">
+          <div class="skeleton-img-big"></div>
+        </div>
+      </div>
+
+      <div class="col-md-6 d-flex align-items-center">
+        <div class="details-box w-100">
+
+          <div class="skeleton-line w-75"></div>
+          <div class="skeleton-line w-50"></div>
+          <div class="skeleton-line w-100"></div>
+          <div class="skeleton-line w-100"></div>
+
+          <div class="skeleton-btn mt-3"></div>
+
+          <div class="d-flex gap-2 mt-3">
+            <div class="skeleton-tag"></div>
+            <div class="skeleton-tag"></div>
+            <div class="skeleton-tag"></div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- INFO GRID SKELETON -->
+    <div class="info-grid">
+
+      <div class="info-box" *ngFor="let i of [1,2,3,4]">
+        <div class="skeleton-line w-50"></div>
+        <div class="skeleton-line w-100"></div>
+        <div class="skeleton-line w-75"></div>
+      </div>
+
+    </div>
+
+    <!-- REVIEW SKELETON -->
+    <div class="review-box mt-4">
+      <div class="skeleton-line w-50"></div>
+      <div class="skeleton-line w-100"></div>
+      <div class="skeleton-line w-75"></div>
+    </div>
+
+    <!-- RELATED SKELETON -->
+    <div class="mt-5">
+      <div class="skeleton-line w-25 mb-3"></div>
+
+      <div class="related-scroll">
+        <div class="related-item" *ngFor="let i of [1,2,3,4]">
+          <div class="skeleton-img"></div>
+          <div class="skeleton-line w-75"></div>
+          <div class="skeleton-line w-50"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+<!-- 🟡 SKELETON LOADER END -->
+<div *ngIf="product" class="product-page">
+
+  <div class="container">
+
+    <!-- TOP SECTION -->
+    <div class="row product-hero">
+
+      <!-- IMAGE -->
+      <div class="col-md-6">
+        <div class="image-card">
+          <img [src]="product.imageUrl" class="main-img">
+        </div>
+      </div>
+
+      <!-- DETAILS -->
+      <div class="col-md-6 d-flex align-items-center">
+        <div class="details-box">
+
+          <h2 class="title">{{ product.name }}</h2>
+
+          <div class="price-rating">
+            <h3 class="price">₹ {{ product.price }}</h3>
+            <span class="rating">⭐ 4.5</span>
+          </div>
+
+          <p class="desc">{{ product.description }}</p>
+
+          <button class="buy-btn" (click)="addToCart()">
+            🛒 Add to Cart
+          </button>
+
+          <div class="highlights">
+            <span>✔ Fast Delivery</span>
+            <span>✔ Genuine Product</span>
+            <span>✔ Easy Returns</span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- INFO SECTIONS -->
+    <div class="info-grid">
+
+      <div class="info-box">
+        <h5>Description</h5>
+        <p>{{ product.description }}</p>
+      </div>
+
+      <div class="info-box">
+        <h5>Benefits</h5>
+        <ul>
+          <li>✔ High Quality Product</li>
+          <li>✔ Trusted Brand</li>
+          <li>✔ Fast Delivery</li>
+          <li>✔ Easy Returns</li>
+        </ul>
+      </div>
+
+      <div class="info-box">
+        <h5>Usage</h5>
+        <p>{{ getUsage() }}</p>
+      </div>
+
+      <div class="info-box">
+        <h5>Why Choose This?</h5>
+        <p>✔ Best Price</p>
+        <p>✔ Excellent Customer Service</p>
+        <p>✔ High Customer Satisfaction</p>
+      </div>
+
+    </div>
+
+    <!-- REVIEWS -->
+    <div class="review-box mt-4">
+      <h5>Customer Reviews</h5>
+      <p>⭐ 4.5 - "Good product"</p>
+      <p>⭐ 4 - "Worth the price"</p>
+      <p>⭐ 5 - "Very effective"</p>
+    </div>
+
+    <!-- RELATED -->
+    <div class="mt-5">
+      <h4>Related Products</h4>
+
+      <div class="related-scroll">
+
+        <div *ngFor="let p of relatedProducts"
+             class="related-item"
+             (click)="goToDetails(p.id)">
+
+          <img [src]="p.imageUrl">
+          <h6>{{ p.name }}</h6>
+          <p>₹ {{ p.price }}</p>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</div>

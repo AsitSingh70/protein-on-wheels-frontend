@@ -1,0 +1,111 @@
+<div class="orders-page container mt-4">
+
+  <h3 class="orders-title mb-4">📦 My Orders</h3>
+
+  <!-- 🟡 SKELETON LOADER START -->
+  <div *ngIf="loading"> <!-- 🟡 changed -->
+
+    <div class="order-card mb-4" *ngFor="let i of [1,2,3]">
+
+      <!-- HEADER -->
+      <div class="order-header">
+
+        <div>
+          <div class="skeleton-line w-50"></div>
+          <div class="skeleton-line w-25"></div>
+        </div>
+
+        <div class="skeleton-badge"></div>
+
+      </div>
+
+      <!-- BODY -->
+      <div class="order-body">
+
+        <div class="order-total">
+          <div class="skeleton-line w-25"></div>
+          <div class="skeleton-line w-25"></div>
+        </div>
+
+        <!-- ITEMS -->
+        <div class="items-section">
+
+          <div class="skeleton-line w-25 mb-2"></div>
+
+          <div class="item-row" *ngFor="let j of [1,2,3]">
+            <div class="skeleton-line w-50"></div>
+            <div class="skeleton-line w-25"></div>
+            <div class="skeleton-line w-25"></div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+  <!-- 🟡 SKELETON LOADER END -->
+
+
+  <!-- 🟡 NO ORDERS MESSAGE -->
+  <div *ngIf="!loading && orders.length === 0" class="text-center mt-4"> <!-- 🟡 added -->
+    <h5>No orders yet 😢</h5>
+    <p>Place your first order and eleminate your self for free gifts!</p>
+  </div>
+
+
+  <!-- 🟢 REAL CONTENT START -->
+  <div *ngIf="!loading && orders.length > 0"> <!-- 🟡 changed -->
+
+    <div *ngFor="let order of orders" class="order-card mb-4">
+
+      <!-- HEADER -->
+      <div class="order-header">
+
+        <div>
+          <p class="order-id">Order #{{ order.id }}</p>
+          <p class="order-date">{{ order.orderDate | date }}</p>
+        </div>
+
+        <!-- STATUS BADGE -->
+        <div 
+          class="status-badge"
+          [ngClass]="{
+            'pending': order.status === 'Pending',
+            'approved': order.status === 'Approved',
+            'cancelled': order.status === 'Cancelled'
+          }">
+          {{ order.status }}
+        </div>
+
+      </div>
+
+      <!-- BODY -->
+      <div class="order-body">
+
+        <div class="order-total">
+          <span>Total</span>
+          <h5>₹{{ order.totalAmount }}</h5>
+        </div>
+
+        <!-- ITEMS -->
+        <div class="items-section">
+          <p class="items-title">Items</p>
+
+          <div *ngFor="let item of order.items" class="item-row">
+            <span class="item-name">{{ item.productName }}</span>
+            <span class="item-qty">x{{ item.quantity }}</span>
+            <span class="item-price">₹{{ item.price }}</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+  <!-- 🟢 REAL CONTENT END -->
+
+</div>

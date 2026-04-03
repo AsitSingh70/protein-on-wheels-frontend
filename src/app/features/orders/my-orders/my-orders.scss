@@ -1,0 +1,159 @@
+/* PAGE */
+.orders-page {
+  background: #f5f7fb;
+  padding-bottom: 30px;
+}
+
+/* TITLE */
+.orders-title {
+  font-weight: 700;
+  color: #001a41;
+}
+
+/* CARD */
+.order-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.order-card:hover {
+  transform: translateY(-3px);
+}
+
+/* HEADER */
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.order-id {
+  font-weight: 600;
+  color: #001a41;
+  margin: 0;
+}
+
+.order-date {
+  font-size: 13px;
+  color: #6c757d;
+  margin: 0;
+}
+
+/* STATUS BADGE */
+.status-badge {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status-badge.pending {
+  background: rgba(255,165,0,0.15);
+  color: #ff9800;
+}
+
+.status-badge.approved {
+  background: rgba(40,167,69,0.15);
+  color: #28a745;
+}
+
+.status-badge.cancelled {
+  background: rgba(220,53,69,0.15);
+  color: #dc3545;
+}
+
+/* BODY */
+.order-body {
+  border-top: 1px solid #eee;
+  padding-top: 12px;
+}
+
+/* TOTAL */
+.order-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.order-total span {
+  color: #6c757d;
+}
+
+.order-total h5 {
+  color: #28a745;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* ITEMS */
+.items-title {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.item-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px dashed #eee;
+}
+
+.item-name {
+  flex: 2;
+}
+
+.item-qty {
+  flex: 1;
+  text-align: center;
+  color: #6c757d;
+}
+
+.item-price {
+  flex: 1;
+  text-align: right;
+  font-weight: 500;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+  .item-row {
+    font-size: 13px;
+  }
+
+  .order-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+}
+
+/* 🟡 SKELETON */
+.skeleton-line {
+  height: 12px;
+  border-radius: 6px;
+  background: #e0e0e0;
+  margin-bottom: 8px;
+  animation: shimmer 1.5s infinite;
+}
+
+.skeleton-badge {
+  width: 80px;
+  height: 25px;
+  border-radius: 20px;
+  background: #e0e0e0;
+  animation: shimmer 1.5s infinite;
+}
+
+/* 🟡 SHIMMER */
+@keyframes shimmer {
+  0% { background-color: #e0e0e0; }
+  50% { background-color: #f5f5f5; }
+  100% { background-color: #e0e0e0; }
+}

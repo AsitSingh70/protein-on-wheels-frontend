@@ -1,0 +1,169 @@
+/* FULL SCREEN DARK BACKGROUND */
+.hacker-container {
+  height: 100vh;
+  width: 100%;
+  background: black;
+  color: #00ff00;
+  font-family: 'Courier New', monospace;
+  overflow: hidden;
+  position: relative;
+}
+
+/* DARK OVERLAY EFFECT */
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 255, 0, 0.05),
+    rgba(0, 255, 0, 0.05) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  animation: flicker 0.2s infinite;
+}
+
+/* CENTER CONTENT */
+.content {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+/* GLITCH TEXT */
+.glitch {
+  font-size: 60px;
+  font-weight: bold;
+  position: relative;
+  color: #00ff00;
+  animation: glitch 1s infinite;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+}
+
+.glitch::before {
+  color: red;
+  z-index: -1;
+  animation: glitchTop 1s infinite;
+}
+
+.glitch::after {
+  color: blue;
+  z-index: -2;
+  animation: glitchBottom 1s infinite;
+}
+
+/* WARNING TEXT */
+.warning-text {
+  color: red;
+  margin-top: 20px;
+  animation: blink 1s infinite;
+}
+
+/* TYPING EFFECT */
+.typing {
+  margin-top: 20px;
+  font-size: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #00ff00;
+  width: 0;
+  animation: typing 4s steps(40, end) forwards, blinkCursor 0.7s infinite;
+}
+
+/* SUB TEXT */
+.sub-text {
+  margin-top: 15px;
+  color: #0f0;
+  animation: fadeIn 3s ease-in-out infinite alternate;
+}
+
+/* BUTTON */
+button {
+  box-shadow: 0 0 10px red;
+}
+
+/* ANIMATIONS */
+@keyframes glitch {
+  0% { transform: none; }
+  20% { transform: skew(-5deg); }
+  40% { transform: skew(5deg); }
+  60% { transform: skew(-3deg); }
+  80% { transform: skew(3deg); }
+  100% { transform: none; }
+}
+
+@keyframes glitchTop {
+  0% { transform: translate(2px, -2px); }
+  50% { transform: translate(-2px, 2px); }
+  100% { transform: translate(2px, -2px); }
+}
+
+@keyframes glitchBottom {
+  0% { transform: translate(-2px, 2px); }
+  50% { transform: translate(2px, -2px); }
+  100% { transform: translate(-2px, 2px); }
+}
+
+@keyframes flicker {
+  0% { opacity: 0.9; }
+  50% { opacity: 1; }
+  100% { opacity: 0.9; }
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blinkCursor {
+  50% { border-color: transparent; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0.3; }
+  to { opacity: 1; }
+}
+
+.fake-terminal {
+  margin-top: 30px;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgba(0, 0, 0, 0.9);
+  padding: 20px;
+  border: 1px solid #00ff00;
+  box-shadow: 0 0 15px #00ff00;
+  font-size: 14px;
+  height: 200px;
+  overflow-y: auto;
+
+  scrollbar-width: none;        // Firefox 🆕
+  -ms-overflow-style: none;
+}
+
+.fake-terminal::-webkit-scrollbar {
+  display: none; // Chrome 🆕
+}
+
+#terminal-output p {
+  margin: 0;
+  line-height: 1.5;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.red {
+  color: red;
+  animation: blink 1s infinite;
+}
