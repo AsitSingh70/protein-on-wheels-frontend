@@ -2,7 +2,8 @@
 <app-category-list></app-category-list>
 
 <!-- 🟡 SKELETON LOADER START -->
-<div *ngIf="!mostLiked || mostLiked.length === 0 || !youMayLike || youMayLike.length === 0 || !deals || deals.length === 0">
+<div
+  *ngIf="!mostLiked || mostLiked.length === 0 || !youMayLike || youMayLike.length === 0 || !deals || deals.length === 0">
 
   <!-- 🟡 PRODUCT SECTIONS -->
   <div class="container mt-4 product-section" *ngFor="let sec of [1,2,3]">
@@ -170,36 +171,70 @@
     </div>
   </div>
 
-  <!-- CEO Section -->
+  <!-- 👑 TEAM SECTION (CEO + DEVELOPER) -->
   <div class="container mt-5 text-center ceo-section">
-    <h4 class="section-title">CEO's Vision</h4>
+    <h4 class="section-title">Our Leadership</h4>
 
-    <div class="card ceo-card mx-auto p-4 shadow-sm">
-      <img src="CEO.jpeg" class="rounded-circle mx-auto mb-3 ceo-img">
-      <h5 class="ceo-name">Asit Singh</h5>
-      <p class="ceo-role">Founder & CEO</p>
+    <!-- 🔥 SCROLL CONTAINER -->
+    <div class="team-scroll">
 
-      <p class="text-muted ceo-text">
-        Our vision is to provide high-quality supplements at affordable prices so that everyone can take care of their
-        health without worrying about cost. We believe that fitness should not be limited to a few people, but should be
-        accessible to everyone who wants to improve their lifestyle.
-        We want to see every athlete, beginner or professional, stand at the same level with equal opportunities to grow
-        and succeed.
-      </p>
+      <!-- 🧑‍💼 CEO CARD -->
+      <div class="card ceo-card p-4 shadow-sm">
+        <img src="CEO.jpeg" class="rounded-circle mx-auto mb-3 ceo-img">
+        <h5 class="ceo-name">Asit Singh</h5>
+        <p class="ceo-role">Founder & CEO</p>
 
-      <div class="mt-3 social-icons">
-        <a href="https://www.instagram.com/asit_lifts?igsh=MWV6aWFrMDVqN3FqNA==" target="_blank">
-          <i class="fab fa-instagram">Instagram</i>
-        </a>
+        <p class="text-muted ceo-text">
+          Our vision is to provide high-quality supplements at affordable prices so that everyone can take care of their
+          health without worrying about cost. We believe that fitness should not be limited to a few people, but should
+          be
+          accessible to everyone who wants to improve their lifestyle.
+          We want to see every athlete, beginner or professional, stand at the same level with equal opportunities to
+          grow
+          and succeed.
+        </p>
 
-        <a href="https://www.facebook.com/share/18gLS3qJMw/?mibextid=wwXIfr" target="_blank">
-          <i class="fab fa-facebook">Facebook</i>
-        </a>
+        <div class="mt-3 social-icons">
+          <a href="https://www.instagram.com/asit_lifts?igsh=MWV6aWFrMDVqN3FqNA==" target="_blank">
+            <i class="fab fa-instagram">Instagram</i>
+          </a>
 
-        <a href="https://linkedin.com/" target="_blank">
-          <i class="fab fa-linkedin">LinkedIn</i>
-        </a>
+          <a href="https://www.facebook.com/share/18gLS3qJMw/?mibextid=wwXIfr" target="_blank">
+            <i class="fab fa-facebook">Facebook</i>
+          </a>
+
+          <a href="https://linkedin.com/" target="_blank">
+            <i class="fab fa-linkedin">LinkedIn</i>
+          </a>
+        </div>
       </div>
+
+      <!-- 👨‍💻 DEVELOPER CARD -->
+      <div class="card ceo-card p-4 shadow-sm">
+        <img src="Developer.jpeg" class="rounded-circle mx-auto mb-3 ceo-img">
+
+        <h5 class="ceo-name">Souvik Pradhan</h5>
+        <p class="ceo-role">Lead Developer & Maintainer</p>
+
+        <p class="text-muted ceo-text">
+          Designed and maintained by me to deliver a fast, simple, and seamless experience for every user. Every detail is built with care to keep the platform smooth, reliable, and easy to use. Your feedback matters, so feel free to share your thoughts anytime. If you notice any issues or anything that doesn’t feel right, you can reach out via email or phone. You can connect directly with the CEO or the Developer whenever needed.
+        </p>
+
+        <div class="mt-3 social-icons">
+          <a href="https://www.instagram.com/_souvik.pradhan_/" target="_blank">
+            <i class="fab fa-instagram">Instagram</i>
+          </a>
+
+          <a href="https://www.linkedin.com/in/souvikpradhan/" target="_blank">
+            <i class="fab fa-linkedin">LinkedIn</i>
+          </a>
+
+          <a href="https://github.com/SouvikPradhan70" target="_blank">
+            <i class="fab fa-github">GitHub</i>
+          </a>
+        </div>
+      </div>
+
     </div>
   </div>
 

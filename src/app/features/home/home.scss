@@ -534,3 +534,35 @@
 }
 
 
+/* 👑 TEAM SCROLL */
+.team-scroll {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scroll-snap-type: x mandatory;
+}
+
+.team-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* each card */
+.team-scroll .ceo-card {
+  min-width: 300px;
+  max-width: 350px;
+  scroll-snap-align: center;
+}
+
+@media (min-width: 768px) {
+  .team-scroll {
+    justify-content: center;
+    overflow: visible;
+  }
+
+  .team-scroll .ceo-card {
+    min-width: 350px;
+  }
+}
+
+
