@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../environments/environment';
 import { CommonModule } from '@angular/common';
-import { CartService } from '../../../core/services/cart'; 
+import { CartService } from '../../../core/services/cart';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   templateUrl: './product-detail.html',
   styleUrl: './product-detail.scss',
 })
-export class ProductDetailComponent implements OnInit{
+export class ProductDetailComponent implements OnInit {
 
   relatedProducts: any[] = [];
   product: any;
@@ -23,23 +23,43 @@ export class ProductDetailComponent implements OnInit{
     private http: HttpClient,
     private cartService: CartService,
     private router: Router
-  ) {}
+  ) { }
+
+  // ngOnInit() {
+  //   const id = this.route.snapshot.paramMap.get('id');
+
+  //   //get current product
+  //   this.http.get(`${this.apiUrl}/Products/${id}`)
+  //     .subscribe((res: any) => {
+  //       this.product = res;
+
+
+  //       //after getting product → load related
+  //       this.loadRelatedProducts();
+  //     });
+  // }
 
   ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('id');
 
-    //get current product
-    this.http.get(`${this.apiUrl}/Products/${id}`)
-      .subscribe((res: any) => {
-        this.product = res;
+    // 🔥 listen to route changes (fix)
+    this.route.paramMap.subscribe(params => {
 
+      const id = params.get('id');
 
-        //after getting product → load related
-        this.loadRelatedProducts();
-      });
+      this.product = null; // 🔥 reset so skeleton shows
+
+      this.http.get(`${this.apiUrl}/Products/${id}`)
+        .subscribe((res: any) => {
+          this.product = res;
+
+          this.loadRelatedProducts();
+        });
+
+    });
+
   }
 
-  addToCart() { 
+  addToCart() {
     this.cartService.addToCart(this.product.id).subscribe(() => {
       alert('Added to cart ;)');
     });
@@ -71,7 +91,7 @@ export class ProductDetailComponent implements OnInit{
           )
           .slice(0, 4); // only 4 products
 
-      });           
+      });
   }
 
   goToDetails(id: number) {
