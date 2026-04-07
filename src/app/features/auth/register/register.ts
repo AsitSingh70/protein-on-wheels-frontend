@@ -25,13 +25,13 @@ export class RegisterComponent {
       error: (err) => {
         console.log("ERROR BLOCK", err);
 
-        const message = err.error;
+        const message = err.error?.toString() || '';
 
         // HANDLE the error CASE
         if (message) {
           alert(message);
           // 🚨 IF USER ALREADY EXISTS → GO TO LOGIN
-          if (message.includes("already exists")) {
+          if (message.toLowerCase().includes("already exists")) {
             this.router.navigate(['/login']);
           }
           else{
