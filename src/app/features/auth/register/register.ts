@@ -30,7 +30,14 @@ export class RegisterComponent {
         // HANDLE the error CASE
         if (message) {
           alert(message);
-          this.router.navigate(['/verify-otp'], { queryParams: { email: this.email } });
+          // 🚨 IF USER ALREADY EXISTS → GO TO LOGIN
+          if (message.includes("already exists")) {
+            this.router.navigate(['/login']);
+          }
+          else{
+            this.router.navigate(['/verify-otp'], { queryParams: { email: this.email } });
+          }
+          
         } else {
           alert('Error sending OTP');
         }
