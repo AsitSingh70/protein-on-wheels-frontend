@@ -37,8 +37,8 @@ export class HomeComponent implements OnInit{
         const shuffled = [...this.products].sort(() => 0.5 - Math.random());
 
         this.mostLiked = shuffled.slice(0, 5);
-        this.youMayLike = shuffled.slice(0,5); 
-        this.deals = shuffled.slice(0,5); 
+        this.youMayLike = shuffled.slice(5,10); 
+        this.deals = shuffled.slice(10,15); 
         // this.mostLiked = shuffled.slice(0, 4);
         // this.youMayLike = shuffled.slice(4, 8); 
         // this.deals = shuffled.slice(8, 11); 
