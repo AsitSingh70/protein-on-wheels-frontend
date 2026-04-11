@@ -5,7 +5,22 @@
     <span class="logo-text">PROTEIN</span>
     <span class="logo-sub">ON WHEELS</span>
   </a>
-  
+
+
+  <!-- 📱 Mobile Search -->
+  <div class="mobile-search d-lg-none mx-2">
+    <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="searchText" (input)="onSearch()" />
+
+    <!-- Dropdown -->
+    <div *ngIf="filteredProducts.length > 0" class="search-dropdown">
+      <div *ngFor="let product of filteredProducts" (click)="goToProduct(product.id)" class="search-item">
+        {{ product.name }}
+      </div>
+    </div>
+  </div>
+
+
+
 
   <!-- 📱 Mobile Toggle -->
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
@@ -32,18 +47,18 @@
     </ul>
 
     <!-- 🔍 Search Bar -->
-    <div class="search-box mx-lg-4 my-2 my-lg-0">
-      <input type="text" class="form-control" placeholder="Search..."
-        [(ngModel)]="searchText" (input)="onSearch()" />
+    <div class="search-box d-none d-lg-block mx-lg-4 my-2 my-lg-0">
+      <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="searchText" (input)="onSearch()" />
 
       <!-- Dropdown -->
       <div *ngIf="filteredProducts.length > 0" class="search-dropdown">
-        <div *ngFor="let product of filteredProducts"
-          (click)="goToProduct(product.id)" class="search-item">
+        <div *ngFor="let product of filteredProducts" (click)="goToProduct(product.id)" class="search-item">
           {{ product.name }}
         </div>
       </div>
     </div>
+
+
 
     <!-- 🛒 Right Side -->
     <div class="ms-auto d-flex align-items-center gap-2">
