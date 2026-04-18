@@ -97,3 +97,32 @@
   }
 
 }
+
+
+/* 🔢 VERSION */
+.version-text {
+  font-size: 12px;
+  color: #bbb;
+  margin-top: 5px;
+}
+
+.version-badge {
+  background: rgba(40, 167, 69, 0.15);
+  color: #28a745;
+  padding: 3px 8px;
+  border-radius: 20px;
+  font-weight: 600;
+  margin-left: 5px;
+  font-size: 11px;
+}
+
+/* 📱 Mobile tweak */
+@media (max-width: 576px) {
+  .version-text {
+    font-size: 11px;
+  }
+
+  .version-badge {
+    padding: 2px 6px;
+  }
+}

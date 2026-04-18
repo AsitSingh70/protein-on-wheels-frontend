@@ -14,7 +14,9 @@ import { AdminProductsComponent } from './features/admin/admin-products/admin-pr
 import { AdminOrdersComponent } from './features/admin/admin-orders/admin-orders';
 import { AdminReportsComponent } from './features/admin/admin-reports/admin-reports';
 import { AdminUsersComponent } from './features/admin/admin-users/admin-users';
-import { adminGuard } from './core/guards/admin-guard';;
+import { adminGuard } from './core/guards/admin-guard';
+import { PaymentInfoComponent } from './features/payment/payment-info/payment-info';
+
 
 
 export const routes: Routes = [
@@ -33,8 +35,9 @@ export const routes: Routes = [
     { path: 'admin/orders', component: AdminOrdersComponent, canActivate: [adminGuard] },
     { path: 'admin/reports', component: AdminReportsComponent, canActivate: [adminGuard] },
     { path: 'admin/users', component: AdminUsersComponent, canActivate: [adminGuard] },
+    { path: 'payment-info', component: PaymentInfoComponent },
 
-    { path: 'not-allowed', loadComponent: () => import('./features/not-allowed/not-allowed').then(m => m.NotAllowedComponent) }, // 🆕
+    { path: 'not-allowed', loadComponent: () => import('./features/not-allowed/not-allowed').then(m => m.NotAllowedComponent) }, 
     
 
 ];

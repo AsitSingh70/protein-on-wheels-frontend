@@ -1,0 +1,51 @@
+<div class="container payment-page py-4">
+
+  <!-- 🔥 Title -->
+  <h2 class="title text-center mb-4">Payment & Order Guide</h2>
+
+  <!-- 💳 PAYMENT CARD -->
+  <div class="card payment-card mb-4">
+
+    <h5 class="section-title">Scan & Pay</h5>
+
+    <!-- QR -->
+    <div class="qr-wrapper">
+      <img src="PhonePayQR.jpeg" alt="QR Code">
+    </div>
+
+    <p class="sub-text">Scan this QR to pay (optional)</p>
+
+    <!-- UPI -->
+    <div class="upi-box">
+      <span class="upi-label">UPI ID</span>
+      <div class="upi-row">
+        <span class="upi-id">8926362354@ybl</span>
+        <button class="copy-btn" (click)="copyUpi()">
+            {{ copied ? 'Copied' : 'Copy' }}
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 📦 ORDER GUIDE -->
+  <div class="card order-card">
+
+    <h5 class="section-title text-primary">How to Order</h5>
+
+    <div class="steps">
+      <div class="step">🛒 Add products to cart</div>
+      <div class="step">➡️ Go to checkout</div>
+      <div class="step">📞 Enter phone number & address</div>
+      <div class="step">💰 No need to pay now</div>
+      <div class="step">📦 Our team will call you within 24 hours</div>
+    </div>
+
+    <!-- OFFER -->
+    <div class="offer-box mt-3">
+      🎁 Don't worry! just call us we will drop price min 20-30% for you with surprise gifts....
+    </div>
+
+  </div>
+
+</div>
