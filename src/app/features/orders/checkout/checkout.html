@@ -24,7 +24,9 @@
     </div>
 
     <!-- BUTTON -->
-    <button class="place-order-btn w-100" [disabled]="!phoneNumber || !address" (click)="showSuccess(); placeOrder()">
+     <!-- modified on 02-05-26 -->
+    <!-- <button class="place-order-btn w-100" [disabled]="!phoneNumber || !address" (click)="showSuccess(); placeOrder()"> -->
+    <button class="place-order-btn w-100" [disabled]="!phoneNumber || !address" (click)="placeOrder()">
       🚀 Confirm & Place Order
     </button>
 
@@ -43,6 +45,28 @@
 
     <h3>Order Placed!</h3>
     <p>Your order was placed successfully 🎉</p>
+
+  </div>
+
+</div>
+
+<!-- added on 02-05-26 -->
+<!-- 🎁 SCRATCH CARD OVERLAY 🔥 NEW -->
+<div class="scratch-overlay" *ngIf="showScratch">
+
+  <div class="scratch-box">
+
+    <h3 *ngIf="!isScratched">🎁 Scratch to reveal your gift</h3>
+
+    <h3 *ngIf="isScratched">🎉 You will get a free: {{ gift }}</h3>
+
+    <!-- 🔥 SIMPLE SCRATCH AREA -->
+    <div 
+      class="scratch-card"
+      (click)="isScratched = true"
+      *ngIf="!isScratched">
+      Scratch Here
+    </div>
 
   </div>
 

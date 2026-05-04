@@ -18,6 +18,12 @@ export class CheckoutComponent implements OnInit {
 
   orderSuccess = false;
 
+  //added on 02-05-26
+  // 🔥 NEW VARIABLES
+  showScratch = false;
+  gift: string = '';
+  isScratched = false;
+
 
 
   constructor(
@@ -41,20 +47,47 @@ export class CheckoutComponent implements OnInit {
       address: this.address
     };
 
+    //added on 02-05-26
     this.orderService.placeOrder(data).subscribe({
-      next: () => {
-        // alert("Order placed successfully");
+      next: (res: any) => {
 
+        // 🔥 GET GIFT FROM BACKEND
+        this.gift = res.giftAssigned;
+
+        // 🔥 SHOW SUCCESS ANIMATION
         this.showSuccess();
-        // DELAY NAVIGATION (IMPORTANT)
+
+        // 🔥 AFTER 2 SEC → SHOW SCRATCH
+        setTimeout(() => {
+          this.orderSuccess = false;
+          this.showScratch = true;
+        }, 2000);
+
+        // 🔥 AFTER 5 SEC → REDIRECT HOME
         setTimeout(() => {
           this.router.navigate(['/']);
-        }, 2000); // 2 sec delay
+        }, 13000);
+
       },
       error: () => {
         alert("Error placing order");
       }
     });
+
+    // this.orderService.placeOrder(data).subscribe({
+    //   next: () => {
+    //     // alert("Order placed successfully");
+
+    //     this.showSuccess();
+    //     // DELAY NAVIGATION (IMPORTANT)
+    //     setTimeout(() => {
+    //       this.router.navigate(['/']);
+    //     }, 2000); // 2 sec delay
+    //   },
+    //   error: () => {
+    //     alert("Error placing order");
+    //   }
+    // });
   }
 
 

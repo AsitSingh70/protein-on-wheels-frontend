@@ -89,6 +89,12 @@
           <h5>₹{{ order.totalAmount }}</h5>
         </div>
 
+        <!-- added on 02-05-26 -->
+        <!-- 🎁 GIFT DISPLAY 🔥 -->
+        <div *ngIf="order.giftAssigned" class="gift-box">
+          🎁 Gift: {{ order.giftAssigned }}
+        </div>
+
         <!-- ITEMS -->
         <div class="items-section">
           <p class="items-title">Items</p>
