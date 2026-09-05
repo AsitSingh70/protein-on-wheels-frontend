@@ -89,14 +89,23 @@
           <h2 class="title">{{ product.name }}</h2>
 
           <div class="price-rating">
-            <h3 class="price">₹ {{ product.price }}</h3>
+
+            <!-- modified on 04/09/26-if u want to show price then uncmnt the down line -->
+            <!-- <h3 class="price">₹ {{ product.price }}</h3> -->
             <span class="rating">⭐ 4.5</span>
           </div>
 
           <p class="desc">{{ product.description }}</p>
 
-          <button class="buy-btn" (click)="addToCart()">
+          <!-- modified on 04/09/26-if u want to enable the add to cart button, uncomment the code below and remove the disabled button code -->
+          <!-- <button class="buy-btn" (click)="addToCart()">
             🛒 Add to Cart
+          </button> -->
+          <button class="buy-btn" disabled>
+            🛒 Add to Cart
+          </button>
+          <button class="buy-btn whatsapp-btn" (click)="openWhatsApp()">
+            💬 Chat on WhatsApp
           </button>
 
           <div class="highlights">
@@ -162,7 +171,9 @@
 
           <img [src]="p.imageUrl">
           <h6>{{ p.name }}</h6>
-          <p>₹ {{ p.price }}</p>
+
+          <!-- modified on 04/09/26-if u want to show price then uncmnt the down line -->
+          <!-- <p>₹ {{ p.price }}</p> -->
 
         </div>
 

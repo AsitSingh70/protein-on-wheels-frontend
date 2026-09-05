@@ -37,10 +37,17 @@
 
           <div class="d-flex justify-content-between align-items-center mt-2">
 
-            <h6 class="product-price">₹ {{p.price}}</h6>
+            <!-- modified on 04/09/26-if u want to show price then uncmnt the down line -->
+            <!-- <h6 class="product-price">₹ {{p.price}}</h6> -->
 
-            <button class="btn add-btn" [class.added]="p.added" (click)="handleAddToCart(p, $event)">
+
+            <!-- modified on 04/09/26-if u want to enable the add to cart button, uncomment the code below and remove the disabled button code -->
+            <!-- <button class="btn add-btn" [class.added]="p.added" (click)="handleAddToCart(p, $event)" >
               {{ p.added ? 'Added ✓' : 'Add to Cart' }}
+            </button> -->
+
+            <button class="btn add-btn" disabled>
+              Add to Cart
             </button>
 
           </div>

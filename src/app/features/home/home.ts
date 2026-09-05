@@ -40,8 +40,8 @@ export class HomeComponent implements OnInit{
         this.youMayLike = shuffled.slice(5,10); 
         this.deals = shuffled.slice(10,15); 
         // this.mostLiked = shuffled.slice(0, 4);
-        // this.youMayLike = shuffled.slice(4, 8); 
-        // this.deals = shuffled.slice(8, 11); 
+        // this.youMayLike = shuffled.slice(0, 4); 
+        // this.deals = shuffled.slice(0, 4); 
       });
   }
 

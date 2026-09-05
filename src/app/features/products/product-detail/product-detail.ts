@@ -65,6 +65,18 @@ export class ProductDetailComponent implements OnInit {
     });
   }
 
+  //addded on 04/09/2026
+  openWhatsApp() {
+    const phoneNumber = '918926362354';
+
+    const message = `Hi, I am interested in ${this.product.name}.
+  Can you please provide more details?`;
+
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+    window.open(whatsappUrl, '_blank');
+  }
+
   getUsage() {
     if (!this.product) return '';
 
